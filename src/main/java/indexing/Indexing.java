@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SequentialIndexing {
+public class Indexing {
     private List<Integer> data;
     private String indexFilePath;
 
-    public SequentialIndexing(String dirPath) {
+    public Indexing(String dirPath) {
         data = new ArrayList<>();
         indexFilePath = dirPath + File.separator + "index.txt";
         loadIndex();

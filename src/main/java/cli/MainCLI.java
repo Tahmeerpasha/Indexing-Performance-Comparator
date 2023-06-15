@@ -6,7 +6,7 @@ public class MainCLI {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the directory path to store the index files: ");
         String dirPath = scanner.nextLine();
-        SequentialIndexing sequentialIndexing = new SequentialIndexing(dirPath);
+        Indexing indexing = new Indexing(dirPath);
         boolean exit = false;
             while (!exit) {
                 System.out.println("Indexing Operations:");
@@ -24,13 +24,13 @@ public class MainCLI {
                     case 1 -> {
                         System.out.print("Enter the value to insert: ");
                         int insertValue = scanner.nextInt();
-                        sequentialIndexing.insert(insertValue);
+                        indexing.insert(insertValue);
                         System.out.println("Value inserted successfully.");
                     }
                     case 2 -> {
                         System.out.print("Enter the value to delete: ");
                         int deleteValue = scanner.nextInt();
-                        boolean isDeleted = sequentialIndexing.delete(deleteValue);
+                        boolean isDeleted = indexing.delete(deleteValue);
                         if (isDeleted) {
                             System.out.println("Value deleted successfully.");
                         } else {
@@ -40,14 +40,14 @@ public class MainCLI {
                     case 3 -> {
                         System.out.print("Enter the value to search: ");
                         int searchValue = scanner.nextInt();
-                        boolean isFound = sequentialIndexing.search(searchValue);
+                        boolean isFound = indexing.search(searchValue);
                         if (isFound) {
                             System.out.println("Value found.");
                         } else {
                             System.out.println("Value not found.");
                         }
                     }
-                    case 4 -> sequentialIndexing.printAllValues();
+                    case 4 -> indexing.printAllValues();
                     case 5 -> exit = true;
                     default -> System.out.println("Invalid choice. Please try again.");
                 }
